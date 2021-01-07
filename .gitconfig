@@ -1,0 +1,31 @@
+[color]
+    pager = true
+    ui = auto
+[core]
+    editor = emacs
+    quotepath = false
+[alias]
+    hist = log --color --graph --pretty=format:'%Cred%h%Creset %C(bold green)%ad%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --date=short --abbrev-commit
+    hs = !git hist -n25
+    ha = !git hist --all
+    has = !git ha -n25
+    ls = log --pretty=format:'%Cred%h%Creset%C(yellow)%d %Creset%s%C(bold blue) <%cn>' --decorate
+    ll = log --pretty=format:'%Cred%h%C(yellow)%d %Creset%s%C(bold blue) <%cn>' --decorate --numstat
+    lds = log --pretty=format:'%Cred%h %C(green)%ad%C(yellow)%d %Creset%s%C(bold blue) <%cn>' --decorate --date=short
+    ld = log --pretty=format:'%Cred%h%C(yellow)%d %Creset%s %Cgreen(%ad)%C(bold blue) <%cn>' --decorate --date=relative
+    ls-files = diff-tree --no-commit-id --name-status -r
+    f = !git ls-files | grep -i
+    dl = !git ll -1
+    dlc = diff --cached HEAD^
+    dc = diff --cached
+    st = status -s
+    sh = show HEAD
+    diff = diff --word-diff
+    cp = cherry-pick
+    sl = stash list
+    ss = stash save
+    su = stash save -u
+    sp = stash pop
+    sa = stash apply
+    sd = stash drop
+    sad = "!f() { git stash apply $1 && git stash drop $1; }; f"
